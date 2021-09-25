@@ -37,7 +37,7 @@ const REACT_APP_DEVELOPMENT=true
 export const configureStore = createStore(
   persistedReducer,
   initialState,
- /*  process.env. */REACT_APP_DEVELOPMENT ? composeEnhancers(applyMiddleware(thunk)) : compose(applyMiddleware(thunk)))
+  /* process.env. */REACT_APP_DEVELOPMENT ? composeEnhancers(applyMiddleware(thunk)) : compose(applyMiddleware(thunk)))
 
   export const persistor = persistStore(configureStore)
  /*  export default configureStore */

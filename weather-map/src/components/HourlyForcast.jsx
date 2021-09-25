@@ -8,6 +8,7 @@ const HourlyForcast = ({ weatherList, hourlyWeatherData }) => {
       <Card className="hourly-forcast-card">
         <Card.Body>
           <Card.Title>{moment(weatherList.dt * 1000).format("h a")}</Card.Title>
+          <p>{weatherList.dt_txt.slice(0, 10)}</p>
           <Card.Subtitle className="mb-2 text-muted">
             {hourlyWeatherData.city.name}
           </Card.Subtitle>
@@ -17,6 +18,7 @@ const HourlyForcast = ({ weatherList, hourlyWeatherData }) => {
               src={`http://openweathermap.org/img/wn/${weatherList.weather[0].icon}@2x.png`}
               alt=""
             />
+            <p>{weatherList.weather[0].description}</p>
           </Card.Text>
           <div className="description">
             <p>min: {Math.round(weatherList.main.temp_min)}°C </p>

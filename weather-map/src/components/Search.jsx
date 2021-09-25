@@ -19,19 +19,15 @@ const Search = (props) => {
     props.fetchWeatherList(searchQuery);
   };
   return (
-    <div className="Container my-5">
-      <Form className="find-location" onSubmit={handleSubmit}>
+    <div className="Container my-4 mx-5">
+      <Form className="find-location mx-5" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Find your location..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <input
-          type="submit"
-          /*  onClick={() => props.fetchWeatherList(searchQuery)} */
-          value="Find"
-        />
+        <input type="submit" value="Find" />
       </Form>
     </div>
   );

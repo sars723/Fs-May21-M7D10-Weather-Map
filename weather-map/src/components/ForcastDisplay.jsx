@@ -1,6 +1,6 @@
 import React from "react";
 import "./ForcastDisplay.css";
-import { Container } from "react-bootstrap";
+import { Container, Carousel, Col, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import HourlyForcast from "./HourlyForcast";
 import { connect } from "react-redux";
@@ -11,34 +11,56 @@ const mapStateToProps = (state) => state;
 const ForcastDisplay = (props) => {
   const [hourlyWeatherData, setHourlyWeatherData] = useState(null);
   console.log("prop", props.weatherList);
-  /* const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=e24eeecb7f9945b49ba016bd3e81f412&units=metric&cnt=17`
-      );
-      if (response.ok) {
-        const fetchedData = await response.json();
-        setHourlyWeatherData(fetchedData);
-        console.log(fetchedData);
-      }
-    } catch (error) {
-      alert("sth wrong");
-    }
-  }; */
   useEffect(() => {
     console.log("prop", props.weatherList.list);
   }, []);
   return (
-    <Container className="  forcast-display my-5">
-      <div className="forecast-container mt-5 d-flex">
-        {Object.keys(props.weatherList).length !== 0
-          ? props.weatherList.list.map((weatherList) => (
-              <HourlyForcast
-                weatherList={weatherList}
-                hourlyWeatherData={props.weatherList}
-              />
-            ))
-          : ""}
+    <Container className="  forcast-display my-3 px-0">
+      <div className="forecast-container mt-1 d-flex row">
+        <Carousel interval={null}>
+          <Carousel.Item>
+            <Row>
+              {Object.keys(props.weatherList).length !== 0
+                ? props.weatherList.list.slice(0, 6).map((weatherList) => (
+                    <Col xs="12" sm="6" md="4" lg="2">
+                      <HourlyForcast
+                        weatherList={weatherList}
+                        hourlyWeatherData={props.weatherList}
+                      />
+                    </Col>
+                  ))
+                : ""}
+            </Row>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Row>
+              {Object.keys(props.weatherList).length !== 0
+                ? props.weatherList.list.slice(6, 11).map((weatherList) => (
+                    <Col xs="12" sm="6" md="4" lg="2">
+                      <HourlyForcast
+                        weatherList={weatherList}
+                        hourlyWeatherData={props.weatherList}
+                      />
+                    </Col>
+                  ))
+                : ""}
+            </Row>
+          </Carousel.Item>
+          <Carousel.Item>
+            <Row>
+              {Object.keys(props.weatherList).length !== 0
+                ? props.weatherList.list.slice(11, 18).map((weatherList) => (
+                    <Col xs="12" sm="6" md="4" lg="2">
+                      <HourlyForcast
+                        weatherList={weatherList}
+                        hourlyWeatherData={props.weatherList}
+                      />
+                    </Col>
+                  ))
+                : ""}
+            </Row>
+          </Carousel.Item>
+        </Carousel>
       </div>
     </Container>
   );

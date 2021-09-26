@@ -2,7 +2,7 @@
   width: 100%;
 }
 .forecast-container {
-  background: #323544;
+  background: #323544af;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -10,12 +10,17 @@
   border-radius: 10px;
   margin-top: -150px;
   margin-bottom: 50px;
-  height: 450px;
+  height: 580px;
   position: relative;
+  align-items: center;
+  justify-content: center;
 }
 .carousel-control-next-icon {
-  margin-left: 150px;
+  margin-right: -190px;
 }
 .carousel-control-prev-icon {
-  margin-right: 150px;
+  margin-left: -190px;
+}
+.carousel-indicators li {
+  display: none;
 }

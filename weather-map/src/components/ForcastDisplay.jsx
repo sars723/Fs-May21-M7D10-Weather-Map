@@ -19,7 +19,7 @@ const ForcastDisplay = (props) => {
       <div className="forecast-container mt-1 d-flex row">
         <Carousel interval={null}>
           <Carousel.Item>
-            <Row>
+            <Row className="mx-0">
               {Object.keys(props.weatherList).length !== 0
                 ? props.weatherList.list.slice(0, 6).map((weatherList) => (
                     <Col xs="12" sm="6" md="4" lg="2">
@@ -35,7 +35,7 @@ const ForcastDisplay = (props) => {
           <Carousel.Item>
             <Row>
               {Object.keys(props.weatherList).length !== 0
-                ? props.weatherList.list.slice(6, 11).map((weatherList) => (
+                ? props.weatherList.list.slice(6, 12).map((weatherList) => (
                     <Col xs="12" sm="6" md="4" lg="2">
                       <HourlyForcast
                         weatherList={weatherList}
@@ -49,8 +49,8 @@ const ForcastDisplay = (props) => {
           <Carousel.Item>
             <Row>
               {Object.keys(props.weatherList).length !== 0
-                ? props.weatherList.list.slice(11, 18).map((weatherList) => (
-                    <Col xs="12" sm="6" md="4" lg="2">
+                ? props.weatherList.list.slice(12, 18).map((weatherList) => (
+                    <Col xs="12" sm="6" md="4" lg="2" className="mx-2">
                       <HourlyForcast
                         weatherList={weatherList}
                         hourlyWeatherData={props.weatherList}

@@ -1,4 +1,7 @@
 .hourly-forcast-card {
   background-color: #262936;
   color: white;
+  width: 142px;
+  margin: auto;
+  height: 485px;
 }

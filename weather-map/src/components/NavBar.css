@@ -1,6 +1,7 @@
 .navbar .navbar-nav a {
   margin-left: 60px;
   margin-right: 60px;
+  color: white !important;
 }
 .navbar .navbar-nav .home-menu {
   border-color: #009ad8;
